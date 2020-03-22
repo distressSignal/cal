@@ -10,6 +10,7 @@ class Read {
     String a;
     String za;
     boolean sw = false;
+    boolean rom;
 
     public void read() {
         String[] arabic = {"10", "9", "8", "7", "6", "5", "4", "3", "2", "1"};
@@ -20,7 +21,7 @@ class Read {
         try {
             za = reader.readLine();
             a = za.toUpperCase();// TODO: 21.03.2020 что-бы можно было складывать x+X
-            System.out.println(a);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -47,6 +48,9 @@ class Read {
                 if (s.equals(cif[0]) || s.equals(cif[1])) {
                     num1 = romanToNumber(cif[0]);
                     num2 = romanToNumber(cif[1]);
+                    rom=true;
+
+
 
                 }
             }
@@ -58,12 +62,11 @@ class Read {
             throw new IllegalArgumentException("Неверный формат данных");
         }
 
-        System.out.println(num1);
-        System.out.println(num2);
+
 
         Calculator calc = new Calculator();
 
-        System.out.println(calc.calculate(num1, num2, qw));
+        System.out.println(calc.calculate(num1, num2, qw,rom));
     }
 
     private static int romanToNumber(String roman) {
